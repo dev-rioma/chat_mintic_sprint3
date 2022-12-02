@@ -35,7 +35,7 @@ class AuthenticationPage extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.blue.shade100,
+                        color: Colors.green.shade100,
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10))),
                     child: Column(children: [
@@ -65,7 +65,7 @@ class AuthenticationPage extends StatelessWidget {
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          color: Colors.blue.shade100,
+                          color: Colors.green.shade100,
                           borderRadius:
                               const BorderRadius.all(Radius.circular(10))),
                       child: Column(
@@ -90,3 +90,4 @@ class AuthenticationPage extends StatelessWidget {
     );
   }
 }
+
