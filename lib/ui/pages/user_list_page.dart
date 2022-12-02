@@ -47,8 +47,11 @@ class _UserListPageState extends State<UserListPage> {
     // Widget usado en la lista de los usuarios
     // mostramos el correo y uid
     return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      color:Colors.grey[300],
       margin: const EdgeInsets.all(4.0),
       child: ListTile(
+        leading: Icon(Icons.person),
         onTap: () {
           Get.to(() => const ChatPage(), arguments: [
             element.uid,
@@ -76,7 +79,8 @@ class _UserListPageState extends State<UserListPage> {
         itemCount: userController.users.length,
         itemBuilder: (context, index) {
           var element = userController.users[index];
-          return _item(element);
+          return Column(children: [Divider(),
+          _item(element)]);
         },
       );
     });
@@ -85,23 +89,22 @@ class _UserListPageState extends State<UserListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Chat App ${authenticationController.userEmail()}"),
-          actions: [
-            // botón para crear unos chats para arrancar el demo
-            IconButton(
+        appBar: AppBar( 
+          title: ListTile(
+            iconColor:Color(0xFFFFFFFF) , textColor:Color(0xFFFFFFFF),
+            leading:IconButton(
+                icon: const Icon(Icons.assignment_return_outlined),
+                onPressed: () {
+                  _logout();
+                }), 
+            title: Text("Chat App ${authenticationController.userEmail()}", style: TextStyle(fontSize: 20.00),),
+            trailing:IconButton(
                 onPressed: () {
                   chatController.initializeChats();
                 },
-                icon: const Icon(Icons.play_circle_outlined)),
-            // botón para cerrar la sesión con el usuario
-            IconButton(
-                icon: const Icon(Icons.exit_to_app),
-                onPressed: () {
-                  _logout();
-                }),
-          ],
+                icon: const Icon(Icons.play_circle_outlined))),
         ),
         body: _list());
   }
 }
+
