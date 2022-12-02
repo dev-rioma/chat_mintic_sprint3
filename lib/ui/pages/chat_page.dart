@@ -56,8 +56,9 @@ class _ChatPageState extends State<ChatPage> {
   Widget _item(Message element, int posicion, String uid) {
     return Card(
       margin: const EdgeInsets.all(4.0),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
       // cambiamos el color dependiendo de quién mandó el usuario
-      color: uid == element.senderUid ? Colors.yellow[200] : Colors.grey[300],
+      color: uid == element.senderUid ? Colors.green[200] : Colors.grey[300],
       child: ListTile(
         title: Text(
           element.msg,
@@ -93,35 +94,41 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Widget _textInput() {
-    return Row(
-      children: [
-        Expanded(
-          flex: 3,
-          child: Container(
-            margin: const EdgeInsets.only(left: 5.0, top: 5.0),
-            child: TextField(
-              key: const Key('MsgTextField'),
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Your message',
+    return Card(
+      color: Colors.grey[300],
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Padding( padding: EdgeInsets.only(bottom: 15.0,top: 10.0),
+        child:Row(
+          children: [
+            Expanded(
+              flex: 3,
+              child: Container(
+                margin: const EdgeInsets.all(5.0),
+                child: TextField(
+                  key: const Key('MsgTextField'),
+                  decoration: const InputDecoration(
+                    labelText: 'Your message',
+                  ),
+                  onSubmitted: (value) {
+                    _sendMsg(_controller.text);
+                    _controller.clear();
+                  },
+                  controller: _controller,
+                ),
               ),
-              onSubmitted: (value) {
+            ),
+            Card( 
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+              color: Colors.green[500],
+              child: IconButton( key: const Key('sendButton'), onPressed: (){
                 _sendMsg(_controller.text);
                 _controller.clear();
-              },
-              controller: _controller,
-            ),
-          ),
-        ),
-        TextButton(
-            key: const Key('sendButton'),
-            child: const Text('Send'),
-            onPressed: () {
-              _sendMsg(_controller.text);
-              _controller.clear();
-            })
-      ],
-    );
+              }, 
+            icon: Icon(Icons.send,color:Color(0xFFFFFFFF) )))
+            
+            
+          ],
+        )));
   }
 
   _scrollToEnd() async {
