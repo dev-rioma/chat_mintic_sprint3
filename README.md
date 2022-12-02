@@ -1,15 +1,14 @@
-# f_chat_template
+CHAT_MINTIC_SPRINT3
 
-Un template para una aplicación de chat usando la base de datos de tiempo real de firebase
+Proyecto en flutter cuyo objetivo es generar una aplicacion para poder chatear entre usuarios, usando getX y base de datos firebase en tiempo real
 
-Video: https://youtu.be/B3SfN_NcBjk
+DEMO DE LA APLICACION
 
-Funcional con Android y Web
+https://user-images.githubusercontent.com/114000553/205197837-f2707ed6-40df-4689-a4ab-4ea064566e44.mp4
 
-
-![chat](https://user-images.githubusercontent.com/4458129/174921637-af104c0d-a64a-4625-b3af-9d4acd37cee5.gif)
-
-Solución:
-
-https://github.com/MisionTIC4b/f_chat
+INTEGRANTES DEL GRUPO DERARROLLADOR
+Jorge Mario Acevedo Salcedo
+Jorge Alejandro González Rodríguez
+Jorge Perez Pomarico
+Ivan Noguera Sáenz
 
